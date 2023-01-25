@@ -1,22 +1,4 @@
-import { useState } from 'react';
-import {users} from './data'
-
 function App() {
-  const [search, setSearch] = useState("")
-
-  const handleChange = e => {
-    setSearch(e.target.value)
-  };
-
-  let filteredUsers = [];
-
-  if (search !== "") {
-    filteredUsers = users.filter(item => item.first_name.toLowerCase().includes(search.toLowerCase()));
-  }else{
-    filteredUsers = users;
-  }
-
-
   return (
     <div className="px-28">
       <h1 className='display-4 text-center my-4 text-2xl font-semibold'>React Search Filter</h1>
@@ -28,7 +10,6 @@ function App() {
         type="text"
         name="search"
         id="search"
-        onChange={handleChange}
         className="block w-full rounded-md border px-3 py-3 outline-none border-gray-300 shadow-sm sm:text-sm"
         placeholder="Search contact by name"
       />
@@ -56,14 +37,12 @@ function App() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 bg-white">
-                  {filteredUsers.map(item => (
-                     <tr key={item.id}>
-                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.first_name}</td>
-                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.last_name}</td>
-                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.email}</td>
-                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{item.Country}</td>
+                     <tr key="1">
+                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">David</td>
+                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Rice</td>
+                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">davidrice@example.com</td>
+                     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">GB</td>
                    </tr>
-                  ))}
                 </tbody>
               </table>
             </div>
